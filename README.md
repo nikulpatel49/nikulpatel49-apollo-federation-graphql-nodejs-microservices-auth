@@ -25,17 +25,17 @@ Simple Demo Application
             <td width="50%" style="width: 50%">
                 <p>Query - Get User List</p>
                 <pre>
-query {
-    users {
-        _id,
-        name,
-        email
-    }
-}
-Set http Header
-{
-  "Authorization": "Bearer eyJhbGciO9..................."
-}
+            query {
+                users {
+                    _id,
+                    name,
+                    email
+                }
+            }
+            Set http Header
+            {
+            "Authorization": "Bearer eyJhbGciO9..................."
+            }
                 </pre>
             </td>
             <td width="50%" style="width: 50%">
@@ -53,19 +53,17 @@ Set http Header
             "_id": "626e36045caeed669061b1ec",
             "name": "Nikul Patel",
             "email": "nikulpateletc49@gmail.com"
-        }
-        ................................
+        },
     ]
   }
 }
-
                 </pre>
             </td>
         </tr>
         <tr></tr>
         <tr valign="top">
             <td>
-                <p>Query - Get by Param</p>
+                <p>Query - Get User by Param</p>
                 <pre>
 query {
     user(_id: "626e36045caeed669061b1ec"){
@@ -98,7 +96,7 @@ Set http Header
         <tr></tr>
         <tr valign="top">
             <td>
-                <p>Mutation - Create</p>
+                <p>Mutation - Register</p>
                 <pre>
 mutation {
     register(
@@ -112,13 +110,11 @@ mutation {
     message
   }
 }
-
                 </pre>
             </td>
             <td>
                 <p>Response</p>
                 <pre>
-
 {
     "data": {
         "register": {
@@ -127,26 +123,26 @@ mutation {
         }
     }
 }
-</pre>
-</td>
-</tr>
-<tr></tr>
-<tr valign="top">
-<td>
-<p>Mutation - Login</p>
-<pre>
+                </pre>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr valign="top">
+            <td>
+                <p>Mutation - Login</p>
+                <pre>
 mutation {
-    login(email: "user0@user.com", password: "user") {
+    login(email: "nikulpateletc49@gmail.com", password: "user") {
         status
         message
         token
     }
 }
-</pre>
-</td>
-<td>
-<p>Response</p>
-<pre>
+                </pre>
+            </td>
+            <td>
+                <p>Response</p>
+                <pre>
 {
     "data": {
         "login": {
@@ -156,9 +152,38 @@ mutation {
         }
     }
 }
-</pre>
-</td>
-</tr>
-</tbody>
-
+                </pre>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>
+                <p>Mutation - Delete User</p>
+                <pre>
+mutation {
+  deleteUser(_id: "626e36045caeed669061b1ec"){
+    status,
+    message,
+  }
+}
+Set http Header
+{
+  "Authorization": "Bearer eyJhbGciO9..................."
+}
+                </pre>
+            </td>
+            <td>
+                <p>Response</p>
+                <pre>
+{
+  "data": {
+    "deleteUser": {
+      "status": true,
+      "message": "User has been successfully deleted"
+    }
+  }
+}
+                </pre>
+            </td>
+        </tr>
+    </tbody>
 </table>
